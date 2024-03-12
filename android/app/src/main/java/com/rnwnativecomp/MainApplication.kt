@@ -11,6 +11,7 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
+import com.rnwnativecomp.customview.ReactImagePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -20,19 +21,26 @@ class MainApplication : Application(), ReactApplication {
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
+              add(MyAppPackage())
+              add(ReactImagePackage())
             }
 
+        // 重寫getJSMainModuleName方法，該方法返回一個字符串，表示JS主模塊的名稱
         override fun getJSMainModuleName(): String = "index"
 
+        // 重寫getUseDeveloperSupport方法，該方法返回一個布爾值，表示是否開啟開發者支持
         override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
 
+        // 重寫isNewArchEnabled屬性，該屬性返回一個布爾值，表示是否啟用新架構
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+        // 重寫isHermesEnabled屬性，該屬性返回一個布爾值，表示是否啟用Hermes
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
       }
 
   override val reactHost: ReactHost
     get() = getDefaultReactHost(this.applicationContext, reactNativeHost)
 
+  // 重寫onCreate方法，該方法在應用創建時被調用
   override fun onCreate() {
     super.onCreate()
     SoLoader.init(this, false)
