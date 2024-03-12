@@ -8,7 +8,10 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView>
       <NewModuleButton />
-      <MyCustomViewer style={{width: 100, height: 100}} />
+      <MyCustomViewer
+        style={{width: 100, height: 100}}
+        imageUri="https://picsum.photos/200/300"
+      />
     </SafeAreaView>
   );
 }
