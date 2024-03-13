@@ -12,6 +12,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 import com.rnwnativecomp.customview.ReactImagePackage
+import com.rnwnativecomp.fragmentview.MyPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -23,6 +24,7 @@ class MainApplication : Application(), ReactApplication {
               // add(MyReactNativePackage())
               add(MyAppPackage())
               add(ReactImagePackage())
+              add(MyPackage())
             }
 
         // 重寫getJSMainModuleName方法，該方法返回一個字符串，表示JS主模塊的名稱
