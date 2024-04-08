@@ -13,6 +13,7 @@ import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 import com.rnwnativecomp.customview.ReactImagePackage
 import com.rnwnativecomp.fragmentview.MyPackage
+import com.microsoft.codepush.react.CodePush;
 
 class MainApplication : Application(), ReactApplication {
 
@@ -37,6 +38,10 @@ class MainApplication : Application(), ReactApplication {
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         // 重寫isHermesEnabled屬性，該屬性返回一個布爾值，表示是否啟用Hermes
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+
+        override fun getJSBundleFile(): String {
+          return CodePush.getJSBundleFile()
+        }
       }
 
   override val reactHost: ReactHost

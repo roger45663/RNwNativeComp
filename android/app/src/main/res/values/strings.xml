@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RNwNativeComp</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">YNCu3myYQV2dgADBqNVWAWVTWMssLj6-dJKKy</string>
 </resources>
